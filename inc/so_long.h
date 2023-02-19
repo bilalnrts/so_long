@@ -33,5 +33,10 @@ void	ft_init_struct(t_game *game);
 int		ft_check(char *line);
 char	*ft_get_map(int fd);
 void	ft_check_pce(char *buffer, t_game *game);
+void	ft_check_map(char *buffer, t_game *game);
+//check_limits
+void	ft_limits_error(void);
+void	ft_check_x_limits(t_game *game);
+void	ft_check_y_limits(t_game *game);
 
 # endif

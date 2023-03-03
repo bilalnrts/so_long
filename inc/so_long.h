@@ -52,5 +52,7 @@ void	ft_put_player(t_game *game);
 void	ft_put_collect(t_game *game);
 void	ft_put_floor(t_game *game);
 void	ft_put_limits(t_game *game);
+//keyhook
+int	ft_keyboard(int keyhook, t_game *game);
 
 # endif

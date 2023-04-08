@@ -1,11 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: binurtas <binurtas@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/14 18:56:39 by binurtas          #+#    #+#             */
+/*   Updated: 2023/04/08 21:12:52 by binurtas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/so_long_bonus.h"
 
 void	ft_window(t_game *game)
 {
 	game->pxl = 50;
 	game->mlx = mlx_init();
-	game->mlx_win = mlx_new_window(game->mlx,
-			game->pxl * game->map_x,
+	game->mlx_win = mlx_new_window(game->mlx, game->pxl * game->map_x,
 			game->pxl * game->map_y, "PokeMario V42");
 	ft_fill_window(game);
 }

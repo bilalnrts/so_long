@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   keyhook.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: binurtas <binurtas@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/14 18:56:39 by binurtas          #+#    #+#             */
+/*   Updated: 2023/04/08 21:05:40 by binurtas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/so_long.h"
 
 void	ft_move_up(t_game *game)
@@ -36,15 +48,15 @@ int	ft_keyboard(int keyhook, t_game *game)
 {
 	if (keyhook == 53)
 		ft_close_window(game);
-	if (game->collect == 0
-		&& ((keyhook == 2 && game->map[game->pl_y][game->pl_x + 1] == 'E')
-		|| (keyhook == 1 && game->map[game->pl_y + 1][game->pl_x] == 'E')
-		|| (keyhook == 0 && game->map[game->pl_y][game->pl_x - 1] == 'E')
-		|| (keyhook == 13 && game->map[game->pl_y - 1][game->pl_x] == 'E')))
-		{
-			ft_printf("OAK: Oh! Thank you for collecting all my Pokemon!\n");
-			ft_close_window(game);
-		}
+	if (game->collect == 0 && ((keyhook == 2 && game->map[game->pl_y][game->pl_x
+				+ 1] == 'E') || (keyhook == 1 && game->map[game->pl_y
+				+ 1][game->pl_x] == 'E') || (keyhook == 0
+				&& game->map[game->pl_y][game->pl_x - 1] == 'E')
+			|| (keyhook == 13 && game->map[game->pl_y - 1][game->pl_x] == 'E')))
+	{
+		ft_printf("OAK: Oh! Thank you for collecting all my Pokemon!\n");
+		ft_close_window(game);
+	}
 	if (keyhook == 13 && game->map[game->pl_y - 1][game->pl_x] != '1'
 		&& game->map[game->pl_y - 1][game->pl_x] != 'E')
 		ft_move_up(game);

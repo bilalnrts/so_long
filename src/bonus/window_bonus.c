@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   window_bonus.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: binurtas <binurtas@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/14 18:56:39 by binurtas          #+#    #+#             */
+/*   Updated: 2023/04/08 21:17:17 by binurtas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/so_long_bonus.h"
 
 int	ft_close_window(t_game *game)
@@ -15,10 +27,11 @@ void	ft_fill_floor(t_game *game)
 		while (game->x < game->map_x)
 		{
 			game->file = mlx_xpm_file_to_image(game->mlx,
-					"./img/floor.xpm", &game->pxl, &game->pxl);
-			mlx_put_image_to_window(game->mlx, game->mlx_win,
-				game->file, game->pxl * game->x,
-				game->pxl * game->y);
+					"./img/floor.xpm",
+					&game->pxl,
+					&game->pxl);
+			mlx_put_image_to_window(game->mlx, game->mlx_win, game->file,
+				game->pxl * game->x, game->pxl * game->y);
 			game->x++;
 		}
 		game->y++;

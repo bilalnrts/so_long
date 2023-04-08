@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_validation.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: binurtas <binurtas@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/14 18:56:39 by binurtas          #+#    #+#             */
+/*   Updated: 2023/04/08 21:05:43 by binurtas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/so_long.h"
 
 void	ft_check_map(char *buffer, t_game *game)
@@ -35,7 +47,6 @@ void	ft_check_pce(char *buffer, t_game *game)
 		exit(1);
 	}
 }
-
 
 char	*ft_join(char *line, char c)
 {

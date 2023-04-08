@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long_bonus.h                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: binurtas <binurtas@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/14 18:56:39 by binurtas          #+#    #+#             */
+/*   Updated: 2023/04/08 21:09:48 by binurtas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_BONUS_H
 # define SO_LONG_BONUS_H
 
-#include <fcntl.h>
-#include "../lib/mlx/mlx.h"
-#include "../lib/libft/libft.h"
-#include "../lib/ft_printf/ft_printf.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+# include <fcntl.h>
+# include "../lib/mlx/mlx.h"
+# include "../lib/libft/libft.h"
+# include "../lib/ft_printf/ft_printf.h"
+# include <stdlib.h>
+# include <stdio.h>
+# include <unistd.h>
 
 typedef struct s_game
 {
@@ -28,8 +40,7 @@ typedef struct s_game
 	char	*pl_dir;
 	int		collect;
 	int		exit;
-
-} t_game;
+}			t_game;
 
 //so_long
 void	ft_check_arg(int ac, char **av);
@@ -65,4 +76,5 @@ void	ft_move_up(t_game *game);
 void	ft_put_enemy(t_game *game);
 void	ft_mov_display(t_game *game);
 void	ft_enemy(int keyhook, t_game *game);
-# endif
+
+#endif

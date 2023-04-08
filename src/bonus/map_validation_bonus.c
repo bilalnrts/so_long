@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   map_validation_bonus.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: binurtas <binurtas@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/14 18:56:39 by binurtas          #+#    #+#             */
+/*   Updated: 2023/04/08 21:05:18 by binurtas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/so_long_bonus.h"
 
 void	ft_check_pce(char *buffer, t_game *game)
@@ -20,7 +32,7 @@ void	ft_check_pce(char *buffer, t_game *game)
 	if (game->player != 1 || game->exit != 1 || game->collect < 1)
 	{
 		ft_printf("Error!\nIncorrect number of Player, Exit or Collectible!");
-		exit (1);
+		exit(1);
 	}
 }
 

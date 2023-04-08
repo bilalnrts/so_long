@@ -5,6 +5,7 @@ BNAME		=	so_long_bonus
 INC			=	inc
 HEADER		=	-I inc
 LIBFT		=	lib/libft/
+FT_PRINTF	=	lib/ft_printf/
 MINILIBX	=	./lib/mlx/
 SRC_DIR		=	src/
 OBJ_DIR		=	obj/
@@ -35,8 +36,10 @@ all:			$(NAME)
 $(NAME):		$(OBJ) $(OBJF)
 				@make -C $(LIBFT)
 				@cp lib/libft/libft.a .
+				@make -C $(FT_PRINTF)
+				@cp lib/ft_printf/libftprintf.a .
 				@make -s -C $(MINILIBX)
-				@$(CC) $(CFLAGS) $(OBJ) $(HEADER) libft.a $(MINILIBXCC) $(OPENGL) -o $(NAME)
+				@$(CC) $(CFLAGS) $(OBJ) $(HEADER) libft.a libftprintf.a $(MINILIBXCC) $(OPENGL) -o $(NAME)
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c $(OBJF)
 				@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
@@ -65,8 +68,10 @@ bonus:			$(BNAME)
 $(BNAME):		$(BOBJ)
 				@make -C $(LIBFT)
 				@cp lib/libft/libft.a .
+				@make -C $(FT_PRINTF)
+				@cp lib/ft_printf/libftprintf.a .
 				@make -s -C $(MINILIBX)
-				@$(CC) $(CFLAGS) $(BSRC) $(HEADER) libft.a $(MINILIBXCC) $(OPENGL) -o $(BNAME)
+				@$(CC) $(CFLAGS) $(BSRC) $(HEADER) libft.a libftprintf.a $(MINILIBXCC) $(OPENGL) -o $(BNAME)
 
 re:				fclean all
 

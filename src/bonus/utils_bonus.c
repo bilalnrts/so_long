@@ -25,7 +25,7 @@ void	ft_enemy(int keyhook, t_game *game)
 		|| (keyhook == 0 && game->map[game->pl_y][game->pl_x - 1] == 'K')
 		|| (keyhook == 13 && game->map[game->pl_y -1][game->pl_x] == 'K'))
 	{
-		printf("You can't beat enemy!\n");
+		ft_printf("You can't beat enemy!\n");
 		ft_close_window(game);
 	}
 }

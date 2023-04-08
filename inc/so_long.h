@@ -3,7 +3,8 @@
 
 #include <fcntl.h>
 #include "../lib/mlx/mlx.h"
-#include "../lib/libft/inc/libft.h"
+#include "../lib/libft/libft.h"
+#include "../lib/ft_printf/ft_printf.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>

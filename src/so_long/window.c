@@ -66,6 +66,6 @@ void	ft_fill_window(t_game *game)
 		}
 		game->y++;
 	}
-	printf("total collect : %d\n", game->collect);
-	printf("Movements: %d\n", game->pl_mov);
+	ft_printf("total collect : %d\n", game->collect);
+	ft_printf("Movements: %d\n", game->pl_mov);
 }

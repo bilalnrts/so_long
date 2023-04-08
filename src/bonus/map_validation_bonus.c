@@ -19,7 +19,7 @@ void	ft_check_pce(char *buffer, t_game *game)
 	}
 	if (game->player != 1 || game->exit != 1 || game->collect < 1)
 	{
-		printf("Error!\nIncorrect number of Player, Exit or Collectible!");
+		ft_printf("Error!\nIncorrect number of Player, Exit or Collectible!");
 		exit (1);
 	}
 }
@@ -29,7 +29,7 @@ void	ft_check_map(char *buffer, t_game *game)
 	game->map_area = ft_strlen(buffer) - game->map_y;
 	if (game->map_area != game->map_x * game->map_y)
 	{
-		printf("Error!\nThe map has a wrong layout.\n");
+		ft_printf("Error!\nThe map has a wrong layout.\n");
 		exit(1);
 	}
 	ft_check_x_limits(game);

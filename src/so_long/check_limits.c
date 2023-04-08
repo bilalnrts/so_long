@@ -2,8 +2,8 @@
 
 void	ft_limits_error(void)
 {
-	printf("Error!\nNot enough walls in the screen limits.\n");
-	printf("Please, plant 1 where they are supposed to be.");
+	ft_printf("Error!\nNot enough walls in the screen limits.\n");
+	ft_printf("Please, plant 1 where they are supposed to be.");
 	exit(1);
 }
 

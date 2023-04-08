@@ -2,7 +2,7 @@
 
 void	ft_limit_error(t_game *game)
 {
-	printf("Error!\nNot enough trees in the screen limits!");
+	ft_printf("Error!\nNot enough trees in the screen limits!");
 	free(game);
 	exit(1);
 }

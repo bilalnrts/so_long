@@ -35,7 +35,7 @@ void	ft_validate_map(char **av, t_game *game)
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
 	{
-		printf("Error!\nThe map could not be read.\n");
+		ft_printf("Error!\nThe map could not be read.\n");
 		exit(1);
 	}
 	buffer = ft_get_map(fd);
@@ -54,12 +54,12 @@ void	ft_check_arg(int ac, char **av)
 {
 	if (ac != 2)
 	{
-		printf("Error\nInvalid number of arguments. Must be 2.\n");
+		ft_printf("Error\nInvalid number of arguments. Must be 2.\n");
 		exit(0);
 	}
 	if (!ft_strnstr(av[1], ".ber", ft_strlen(av[1])))
 	{
-		printf("Error\nInvalid file type. Must be \"<name>.ber\"\n");
+		ft_printf("Error\nInvalid file type. Must be \"<name>.ber\"\n");
 		exit(0);
 	}
 }

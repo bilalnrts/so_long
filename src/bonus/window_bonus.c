@@ -1,6 +1,6 @@
-#include "../../inc/so_long.h"
+#include "../../inc/so_long_bonus.h"
 
-int		ft_close_window(t_game *game)
+int	ft_close_window(t_game *game)
 {
 	mlx_destroy_window(game->mlx, game->mlx_win);
 	exit(1);
@@ -15,9 +15,10 @@ void	ft_fill_floor(t_game *game)
 		while (game->x < game->map_x)
 		{
 			game->file = mlx_xpm_file_to_image(game->mlx,
-						"./img/floor.xpm", &game->pxl, &game->pxl);
+					"./img/floor.xpm", &game->pxl, &game->pxl);
 			mlx_put_image_to_window(game->mlx, game->mlx_win,
-				game->file, game->x * game->pxl, game->y * game->pxl);
+				game->file, game->pxl * game->x,
+				game->pxl * game->y);
 			game->x++;
 		}
 		game->y++;
@@ -60,12 +61,13 @@ void	ft_fill_window(t_game *game)
 				ft_put_collect(game);
 			else if (game->map[game->y][game->x] == 'P')
 				ft_put_player(game);
+			else if (game->map[game->y][game->x] == 'K')
+				ft_put_enemy(game);
 			else if (game->map[game->y][game->x] == 'E')
 				ft_put_exit(game);
 			game->x++;
 		}
 		game->y++;
 	}
-	printf("total collect : %d\n", game->collect);
-	printf("Movements: %d\n", game->pl_mov);
+	ft_mov_display(game);
 }

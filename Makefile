@@ -15,9 +15,9 @@ MINILIBXCC	=	-I mlx -L ./lib/mlx/ -lmlx
 OPENGL		=	-framework OpenGL -framework AppKit
 
 SL_DIR		=	so_long/
-MAND_FILES	=	so_long check_limits map_validation window window_fill
+MAND_FILES	=	so_long check_limits map_validation window window_fill keyhook
 BONUS_DIR	=	bonus/
-BONUS_FILES	=
+BONUS_FILES	=	check_limits_bonus map_validation_bonus so_long_bonus utils_bonus window_bonus window_fill_bonus keyhook_bonus
 
 SRC_FILES	=	$(addprefix $(SL_DIR), $(MAND_FILES))
 SRC_BFILES	=	$(addprefix $(BONUS_DIR), $(BONUS_FILES))
@@ -59,6 +59,14 @@ fclean:			clean
 				@$(RM) $(LIBFT)/libft.a
 				@$(RM) -rf *.dSYM
 				@find . -name ".DS_Store" -delete
+
+bonus:			$(BNAME)
+
+$(BNAME):		$(BOBJ)
+				@make -C $(LIBFT)
+				@cp lib/libft/libft.a .
+				@make -s -C $(MINILIBX)
+				@$(CC) $(CFLAGS) $(BSRC) $(HEADER) libft.a $(MINILIBXCC) $(OPENGL) -o $(BNAME)
 
 re:				fclean all
 

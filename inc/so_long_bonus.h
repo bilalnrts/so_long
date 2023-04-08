@@ -1,5 +1,5 @@
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 #include <fcntl.h>
 #include "../lib/mlx/mlx.h"
@@ -40,7 +40,7 @@ void	ft_check_pce(char *buffer, t_game *game);
 void	ft_check_map(char *buffer, t_game *game);
 char	*ft_join(char *line, char c);
 //check_limits
-void	ft_limits_error(void);
+void	ft_limits_error(t_game *game);
 void	ft_check_x_limits(t_game *game);
 void	ft_check_y_limits(t_game *game);
 //window
@@ -60,5 +60,8 @@ void	ft_move_left(t_game *game);
 void	ft_move_right(t_game *game);
 void	ft_move_down(t_game *game);
 void	ft_move_up(t_game *game);
-
+//bonus
+void	ft_put_enemy(t_game *game);
+void	ft_mov_display(t_game *game);
+void	ft_enemy(int keyhook, t_game *game);
 # endif

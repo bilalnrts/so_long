@@ -15,8 +15,8 @@
 
 # include <fcntl.h>
 # include "../lib/mlx/mlx.h"
-# include "../lib/libft/libft.h"
-# include "../lib/ft_printf/ft_printf.h"
+# include "../lib/libft/inc/libft.h"
+# include "../lib/libft/inc/ft_printf.h"
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
@@ -42,9 +42,18 @@ typedef struct s_game
 	int		exit;
 }			t_game;
 
+typedef struct s_cpy
+{
+	char	**map;
+	int		pl_x;
+	int		pl_y;
+	int		collect_c;
+	int		correct_exit;
+}			t_cpy;
+
 //so_long
 void	ft_check_arg(int ac, char **av);
-void	ft_validate_map(char **av, t_game *game);
+void	ft_validate_map(char **av, t_game *game, t_cpy *cpy);
 void	ft_init_struct(t_game *game);
 //map_validation
 char	*ft_get_map(int fd);
@@ -72,5 +81,7 @@ void	ft_move_left(t_game *game);
 void	ft_move_right(t_game *game);
 void	ft_move_down(t_game *game);
 void	ft_move_up(t_game *game);
+
+void	ft_map_control(t_game *game, t_cpy *cpy);
 
 #endif

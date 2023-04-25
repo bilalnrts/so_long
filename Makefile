@@ -5,7 +5,6 @@ BNAME		=	so_long_bonus
 INC			=	inc
 HEADER		=	-I inc
 LIBFT		=	lib/libft/
-FT_PRINTF	=	lib/ft_printf/
 MINILIBX	=	./lib/mlx/
 SRC_DIR		=	src/
 OBJ_DIR		=	obj/
@@ -16,7 +15,7 @@ MINILIBXCC	=	-I mlx -L ./lib/mlx/ -lmlx
 OPENGL		=	-framework OpenGL -framework AppKit
 
 SL_DIR		=	so_long/
-MAND_FILES	=	so_long check_limits map_validation window window_fill keyhook
+MAND_FILES	=	so_long check_limits map_validation window window_fill keyhook valid_path
 BONUS_DIR	=	bonus/
 BONUS_FILES	=	check_limits_bonus map_validation_bonus so_long_bonus utils_bonus window_bonus window_fill_bonus keyhook_bonus
 
@@ -36,10 +35,8 @@ all:			$(NAME)
 $(NAME):		$(OBJ) $(OBJF)
 				@make -C $(LIBFT)
 				@cp lib/libft/libft.a .
-				@make -C $(FT_PRINTF)
-				@cp lib/ft_printf/libftprintf.a .
 				@make -s -C $(MINILIBX)
-				@$(CC) $(CFLAGS) $(OBJ) $(HEADER) libft.a libftprintf.a $(MINILIBXCC) $(OPENGL) -o $(NAME)
+				@$(CC) $(CFLAGS) $(OBJ) $(HEADER) libft.a $(MINILIBXCC) $(OPENGL) -o $(NAME)
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.c $(OBJF)
 				@$(CC) $(CFLAGS) $(HEADER) -c $< -o $@
@@ -68,10 +65,8 @@ bonus:			$(BNAME)
 $(BNAME):		$(BOBJ)
 				@make -C $(LIBFT)
 				@cp lib/libft/libft.a .
-				@make -C $(FT_PRINTF)
-				@cp lib/ft_printf/libftprintf.a .
 				@make -s -C $(MINILIBX)
-				@$(CC) $(CFLAGS) $(BSRC) $(HEADER) libft.a libftprintf.a $(MINILIBXCC) $(OPENGL) -o $(BNAME)
+				@$(CC) $(CFLAGS) $(BSRC) $(HEADER) libft.a $(MINILIBXCC) $(OPENGL) -o $(BNAME)
 
 re:				fclean all
 

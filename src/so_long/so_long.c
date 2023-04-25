@@ -38,7 +38,7 @@ void	ft_window(t_game *game)
 	ft_fill_window(game);
 }
 
-void	ft_validate_map(char **av, t_game *game)
+void	ft_validate_map(char **av, t_game *game, t_cpy *cpy)
 {
 	int		i;
 	int		fd;
@@ -54,6 +54,7 @@ void	ft_validate_map(char **av, t_game *game)
 	buffer = ft_get_map(fd);
 	ft_check_pce(buffer, game);
 	game->map = ft_split(buffer, '\n');
+	cpy->map = ft_split(buffer, '\n');
 	while (game->map[0][i])
 	{
 		game->map_x++;
@@ -80,10 +81,12 @@ void	ft_check_arg(int ac, char **av)
 int	main(int ac, char **av)
 {
 	t_game	game;
+	t_cpy	cpy;
 
 	ft_check_arg(ac, av);
 	ft_init_struct(&game);
-	ft_validate_map(av, &game);
+	ft_validate_map(av, &game, &cpy);
+	ft_map_control(&game, &cpy);
 	ft_window(&game);
 	mlx_hook(game.mlx_win, 2, 1L << 0, ft_keyboard, &game);
 	mlx_hook(game.mlx_win, 17, 1L << 5, ft_close_window, &game);

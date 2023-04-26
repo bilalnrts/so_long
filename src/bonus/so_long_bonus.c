@@ -53,6 +53,7 @@ void	ft_validate_map(char **av, t_game *game)
 	while (game->map[0][game->map_x])
 		game->map_x++;
 	ft_check_map(buffer, game);
+	free(buffer);
 	close(fd);
 }
 

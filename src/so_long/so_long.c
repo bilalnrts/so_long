@@ -61,6 +61,7 @@ void	ft_validate_map(char **av, t_game *game, t_cpy *cpy)
 		i++;
 	}
 	ft_check_map(buffer, game);
+	free(buffer);
 	close(fd);
 }
 

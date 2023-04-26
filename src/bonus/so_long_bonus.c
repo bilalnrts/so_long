@@ -6,7 +6,7 @@
 /*   By: binurtas <binurtas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 18:56:39 by binurtas          #+#    #+#             */
-/*   Updated: 2023/04/08 21:12:52 by binurtas         ###   ########.fr       */
+/*   Updated: 2023/04/26 19:25:34 by binurtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	ft_init_struct(t_game *game)
 	game->exit = 0;
 }
 
-void	ft_validate_map(char **av, t_game *game)
+void	ft_validate_map(char **av, t_game *game, t_cpy *cpy)
 {
 	int		fd;
 	char	*buffer;
@@ -50,6 +50,7 @@ void	ft_validate_map(char **av, t_game *game)
 	buffer = ft_get_map(fd);
 	ft_check_pce(buffer, game);
 	game->map = ft_split(buffer, '\n');
+	cpy->map = ft_split(buffer, '\n');
 	while (game->map[0][game->map_x])
 		game->map_x++;
 	ft_check_map(buffer, game);
@@ -74,11 +75,15 @@ void	ft_check_arg(int ac, char **av)
 int	main(int ac, char **av)
 {
 	t_game	game;
+	t_cpy	cpy;
 
 	ft_check_arg(ac, av);
 	ft_init_struct(&game);
-	ft_validate_map(av, &game);
+	ft_validate_map(av, &game, &cpy);
+	ft_map_control(&game, &cpy);
 	ft_window(&game);
 	mlx_hook(game.mlx_win, 2, 1L << 0, ft_keyboard, &game);
+	mlx_hook(game.mlx_win, 17, 1L << 5, ft_close_window, &game);
 	mlx_loop(game.mlx);
+	return (0);
 }

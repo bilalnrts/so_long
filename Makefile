@@ -17,7 +17,8 @@ OPENGL		=	-framework OpenGL -framework AppKit
 SL_DIR		=	so_long/
 MAND_FILES	=	so_long check_limits map_validation window window_fill keyhook valid_path
 BONUS_DIR	=	bonus/
-BONUS_FILES	=	check_limits_bonus map_validation_bonus so_long_bonus utils_bonus window_bonus window_fill_bonus keyhook_bonus
+BONUS_FILES	=	check_limits_bonus map_validation_bonus so_long_bonus utils_bonus window_bonus \
+				window_fill_bonus keyhook_bonus valid_path_bonus
 
 SRC_FILES	=	$(addprefix $(SL_DIR), $(MAND_FILES))
 SRC_BFILES	=	$(addprefix $(BONUS_DIR), $(BONUS_FILES))
@@ -55,6 +56,7 @@ clean:
 
 fclean:			clean
 				@$(RM) $(NAME)
+				@$(RM) $(BNAME)
 				@$(RM) libft.a
 				@$(RM) $(LIBFT)/libft.a
 				@$(RM) -rf *.dSYM

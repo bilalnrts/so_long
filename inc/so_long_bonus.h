@@ -61,7 +61,7 @@ void	ft_check_pce(char *buffer, t_game *game);
 void	ft_check_map(char *buffer, t_game *game);
 char	*ft_join(char *line, char c);
 //check_limits
-void	ft_limits_error(t_game *game);
+void	ft_limits_error(void);
 void	ft_check_x_limits(t_game *game);
 void	ft_check_y_limits(t_game *game);
 //window

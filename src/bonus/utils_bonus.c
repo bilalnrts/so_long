@@ -24,10 +24,14 @@ void	ft_put_enemy(t_game *game)
 
 void	ft_mov_display(t_game *game)
 {
+	char	*move;
+
+	move = ft_itoa(game->pl_mov);
 	mlx_string_put(game->mlx, game->mlx_win, game->pxl * game->map_x * (0.84),
 		10, 0x80000, "Movements: ");
 	mlx_string_put(game->mlx, game->mlx_win, game->pxl * game->map_x * (0.95),
-		10, 0x80000, ft_itoa(game->pl_mov));
+		10, 0x80000, move);
+	free(move);
 }
 
 void	ft_enemy(int keyhook, t_game *game)
